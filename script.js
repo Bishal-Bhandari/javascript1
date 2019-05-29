@@ -8,7 +8,7 @@
        lName:lName,
        age:Age,
        gender:Gender,
-       fullname:function(){return(this.fName + this.lName)}
+       fullname:function(){return(this.fName +" "+ this.lName)}
    }
 
-alert("Name"+data.fullname()+"\n"+"Age"+data.age+"\n"+"Gender"+data.gender);
+alert("Name:"+data.fullname()+"\n"+"Age:"+data.age+"\n"+"Gender:"+data.gender);
