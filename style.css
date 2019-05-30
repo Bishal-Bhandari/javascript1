@@ -1,0 +1,52 @@
+#box1{
+    width: 100px;
+    height: 100px;
+    background: rgb(81, 241, 6);
+    position: absolute;
+    left: 45%;
+    top: 10%;
+}
+#box2{
+    width: 100px;
+    height: 100px;
+    background: rgb(247, 1, 1);
+    position: absolute;
+    left: 40%;
+    top: 5%;
+}
+#box3{
+    width: 100px;
+    height: 100px;
+    background: rgb(3, 7, 236);
+    position: absolute;
+   left:35%;
+   top: 10%;
+}
+.fa-caret-up{
+    position: absolute;
+    top: 0%;
+    left: 45%;
+}
+.fa-caret-left{
+    position: absolute;
+    top: 45%;
+    left: 0%;
+}
+.fa-caret-right{
+    position: absolute;
+    top: 45%;
+    right: 0%;
+}
+.fa-caret-down{
+    position: absolute;
+    left:45%;
+    bottom: 0%;
+}
+.mainBox{
+    width: 125px;
+    height: 125px;
+    border: 1px solid hsl(0, 0%, 0%);
+}
+.top{
+    z-index: 1;
+}
