@@ -19,8 +19,14 @@
     height: 100px;
     background: rgb(3, 7, 236);
     position: absolute;
-   left:35%;
-   top: 10%;
+    left:35%;
+    top: 10%;
+}
+.wrap{
+    height: 200px;
+    width: 400px;
+    position: relative;
+    margin-left: 300px;
 }
 .fa-caret-up{
     position: absolute;
@@ -43,9 +49,10 @@
     bottom: 0%;
 }
 .mainBox{
-    width: 125px;
-    height: 125px;
+    width: 250px;
+    height: 250px;
     border: 1px solid hsl(0, 0%, 0%);
+    position: absolute;
 }
 .top{
     z-index: 1;

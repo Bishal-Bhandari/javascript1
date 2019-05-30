@@ -18,7 +18,7 @@
 // document.querySelector("a").addEventListener("click",handler2);
 
 // change box z-index
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
 
     var handler = function () {
         // Searching for all boxes with class .top
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     boxes = document.querySelectorAll('.box');
     boxes.forEach(function (box) {
-        console.log('box', box)
-        box.addEventListener('click', handler)
+        console.log('box', box);
+        box.addEventListener('click', handler);
     })
 
     //move the box
@@ -76,8 +76,18 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     //make dragable
-    var dragBox = document.querySelector("#box");
-    var dragToMain = document.querySelector("#mainBox");
-
-
-});
+    
+    function allowDrop(ev) {
+        ev.preventDefault();
+      }
+      
+      function drag(ev) {
+        ev.dataTransfer.setData("text/plain", ev.target.id);
+        console.log(ev.dataTransfer.getData("text"));
+      }
+      
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text/plain");
+       ev.target.appendChild(document.getElementById(data));
+      }
