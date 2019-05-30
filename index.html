@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
-    <a href="#" onclick="handler2()">Click me</a>
+    <!-- for event  -->
+    <!-- <a id="an" href="#" onclick="handler1()">Click</a>-->
+
+    <!-- position box z-index -->
+    <div class="mainBox" id="mainBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="box" id="box1" draggable="true" ondragover="allowDrop(event)">
+            <i class="fas fa-caret-up" id="up" onclick="moveBox()"></i>
+            <i class="fas fa-caret-left" id="left" onclick="moveBox()"></i>
+            <i class="fas fa-caret-right" id="right" onclick="moveBox()"></i>
+            <i class="fas fa-caret-down" id="down" onclick="moveBox()"></i>
+    </div>
+    <div class="box" id="box2" draggable="true" ondragover="allowDrop(event)">
+            <i class="fas fa-caret-up" id="up" onclick="moveBox()"></i>
+            <i class="fas fa-caret-left" id="left" onclick="moveBox()"></i>
+            <i class="fas fa-caret-right" id="right" onclick="moveBox()"></i>
+            <i class="fas fa-caret-down" id="down" onclick="moveBox()"></i>
+    </div>
+    <div class="box" id="box3" draggable="true" ondragover="allowDrop(event)">
+            <i class="fas fa-caret-up" id="up" onclick="moveBox()"></i>
+            <i class="fas fa-caret-left" id="left" onclick="moveBox()"></i>
+            <i class="fas fa-caret-right" id="right" onclick="moveBox()"></i>
+            <i class="fas fa-caret-down" id="down" onclick="moveBox()"></i>
+    </div>
 </body>
 </html>
