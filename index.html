@@ -13,8 +13,14 @@
     <!-- <a id="an" href="#" onclick="handler1()">Click</a>-->
 
     <!-- position box z-index -->
-    <div class="mainBox" ondrop="drop(event)" id="dropArea" ondragover="allowDrop(event)"></div>
-<div class="wrap" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <div class="mainBox" ondrop="drop(event)" id="dropArea" ondragover="allowDrop(event)">
+        <div class="btnBar" id="topBar"></div>
+        <i class="fas fa-window-minimize" id="mini" ></i>
+        <i class="fas fa-compress-arrows-alt" id="oriSize" ></i>
+        <i class="fas fa-window-maximize" id="max" ></i>
+        <i class="fas fa-window-close" id="close"></i>
+    </div>
+<!-- <div class="wrap" ondrop="drop(event)" ondragover="allowDrop(event)">
     <div class="box" id="box1" draggable="true" ondragstart="drag(event)">
             <i class="fas fa-caret-up" id="up" onclick="moveBox()"></i>
             <i class="fas fa-caret-left" id="left" onclick="moveBox()"></i>
@@ -32,7 +38,7 @@
             <i class="fas fa-caret-left" id="left" onclick="moveBox()"></i>
             <i class="fas fa-caret-right" id="right" onclick="moveBox()"></i>
             <i class="fas fa-caret-down" id="down" onclick="moveBox()"></i>
-    </div>
+    </div> -->
 </div>
     <script src="script.js"></script>
 
