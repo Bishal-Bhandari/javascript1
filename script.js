@@ -101,6 +101,7 @@ maximize.forEach(function(node){
         this.parentNode.style.width = '97vw';
         this.parentNode.style.height = '97vh';
         this.parentNode.style.top = '0%';
+        this.parentNode.style.left = '1%';
         node.classList.toggle("hideMax");
         var defSize=document.getElementById("oriSize");
         // console.log(defSize);
