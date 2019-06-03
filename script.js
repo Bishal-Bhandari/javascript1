@@ -19,7 +19,7 @@
 
 // change box z-index
 // document.addEventListener('DOMContentLoaded', function () {});
-
+document.querySelector("body").style.background = "url(" + localStorage.getItem("bground") + ")";
 var handler = function () {
     // Searching for all boxes with class .top
     nodes = document.querySelectorAll('.top');
@@ -75,52 +75,52 @@ rightkey.forEach(function (node) {
     });
 })
 //close
-close= document.querySelectorAll('.fa-window-close');
-minimize= document.querySelectorAll('.fa-window-minimize');
-maximize= document.querySelectorAll('.fa-window-maximize');
-oriSize=document.querySelectorAll('.fa-compress-arrows-alt');
+close = document.querySelectorAll('.fa-window-close');
+minimize = document.querySelectorAll('.fa-window-minimize');
+maximize = document.querySelectorAll('.fa-window-maximize');
+oriSize = document.querySelectorAll('.fa-compress-arrows-alt');
 
 
 // close
-close.forEach(function(node){
-    node.addEventListener('click', function() {
+close.forEach(function (node) {
+    node.addEventListener('click', function () {
         this.parentNode.style.display = 'none';
     });
 })
 // minimize
-minimize.forEach(function(node){
-    node.addEventListener('click', function() {
+minimize.forEach(function (node) {
+    node.addEventListener('click', function () {
         this.parentNode.style.width = '300px';
-        this.parentNode.style.height = '50px';
-        this.parentNode.style.top = '90%';
+        this.parentNode.style.height = '20px';
+        this.parentNode.style.top = '94%';
     });
 })
 // maximize
-maximize.forEach(function(node){
-    node.addEventListener('click', function() {
+maximize.forEach(function (node) {
+    node.addEventListener('click', function () {
         this.parentNode.style.width = '97vw';
         this.parentNode.style.height = '97vh';
         this.parentNode.style.top = '0%';
         this.parentNode.style.left = '1%';
         node.classList.toggle("hideMax");
-        var defSize=document.getElementById("oriSize");
+        var defSize = document.getElementById("oriSize");
         // console.log(defSize);
         defSize.classList.toggle("showMax");
     });
 })
 //default size
-oriSize.forEach(function(node){
-    node.addEventListener('click', function() {
+oriSize.forEach(function (node) {
+    node.addEventListener('click', function () {
         // document.querySelector('#dropArea').style='';
         document.querySelector('#dropArea').removeAttribute('style');//remove inline css
         node.classList.toggle("showMax");
         console.log(node);
-        var defSize=document.getElementById("max");
+        var defSize = document.getElementById("max");
         // console.log(defSize);
         defSize.classList.toggle("hideMax");
         // console.log(node);
-       
-        
+
+
     });
 })
 //make dragable
@@ -145,46 +145,87 @@ function drop(ev) {
 // document.getElementById('close').addEventListener('click', function() {
 //     this.parentNode.style.display = 'none';
 // });
-//Make the DIV element draggagle:
+
 dragElement(document.getElementById("dropArea"));
 
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     elmnt.onmousedown = dragMouseDown;
-  }
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+//change wallpaper
 
-  function dragMouseDown(e) {
-    e = e || window.event;
+noContext = document.getElementById('body');
+noContext.addEventListener('contextmenu', e => {
     e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+    e.stopPropagation();
+});
+// on click
+var menuDisplayed = false;
+var menuBox = null;
 
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
+window.addEventListener("contextmenu", function () {
+    var left = arguments[0].clientX;
+    var top = arguments[0].clientY;
+    // console.log(arguments[0]);
+    // console.log(top);
+    menuBox = window.document.querySelector(".wallpaper");
+    menuBox.style.left = left + "px";
+    menuBox.style.top = top + "px";
+    menuBox.style.display = "block";
 
-  function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+    arguments[0].preventDefault();
+
+    menuDisplayed = true;
+}, false);
+
+window.addEventListener("click", function () {
+    if (menuDisplayed == true) {
+        menuBox.style.display = "none";
+    }
+}, true);
+//read file name nad show
+document.querySelector(".list").addEventListener("click", function() {
+    document.querySelector("#wallpaper").click();
+   });
+   document.querySelector(".body").style.background =
+    "url(" + reader.result + ")";
+   function previewFile() {
+    var file = document.querySelector("input[type=file]").files[0];
+    var reader = new FileReader();
+   
+    reader.onloadend = function() {
+      Object.assign(document.querySelector(".body").style, {
+        background: "url(" + reader.result + ")",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat"
+      });
+      localStorage.setItem("bground", reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      alert("please choose a valid file");
+    }
 }
