@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body id="body" class="body">
     <!-- for event  -->
     <!-- <a id="an" href="#" onclick="handler1()">Click</a>-->
+<!-- <div class="wrapp" id="warpper"></div> -->
 
     <!-- position box z-index -->
-    <div class="mainBox"  ondrop="drop(event)" id="dropArea" ondragover="allowDrop(event)">
-        <div class="btnBar" id="topBar"></div>
-        <i class="fas fa-window-minimize" id="mini" ></i>
-        <i class="fas fa-compress-arrows-alt" id="oriSize" ></i>
-        <i class="fas fa-window-maximize" id="max" ></i>
+    <div class="mainBox" ondrop="drop(event)" id="dropArea" ondragover="allowDrop(event)">
+        <div class="btnBar" id="topBar">
+            <h4>Title Bar</h4>
+        </div>
+        <i class="fas fa-window-minimize" id="mini"></i>
+        <i class="fas fa-compress-arrows-alt" id="oriSize"></i>
+        <i class="fas fa-window-maximize" id="max"></i>
         <i class="fas fa-window-close" id="close"></i>
     </div>
-<!-- <div class="wrap" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <!-- on right click open -->
+    <div class="wallpaper">
+        <div class="list">Change background</div>
+    </div>
+    <input type="file" name="background" id="wallpaper" onchange="previewFile()">
+
+    <!-- <div class="wrap" ondrop="drop(event)" ondragover="allowDrop(event)">
     <div class="box" id="box1" draggable="true" ondragstart="drag(event)">
             <i class="fas fa-caret-up" id="up" onclick="moveBox()"></i>
             <i class="fas fa-caret-left" id="left" onclick="moveBox()"></i>
@@ -39,8 +51,9 @@
             <i class="fas fa-caret-right" id="right" onclick="moveBox()"></i>
             <i class="fas fa-caret-down" id="down" onclick="moveBox()"></i>
     </div> -->
-</div>
+    </div>
     <script src="script.js"></script>
 
 </body>
+
 </html>
