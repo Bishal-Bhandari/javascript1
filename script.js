@@ -27,7 +27,7 @@ var handler = function () {
         // removing the class .top from each node
         node.classList.remove('top');
     })
-    console.log(this)
+    // console.log(this)
     this.classList.add('top');
 }
 boxes = document.querySelectorAll('.box');
@@ -74,7 +74,7 @@ rightkey.forEach(function (node) {
         target.style.left = newRight;
     });
 })
-//close
+//close minimize maximize
 close = document.querySelectorAll('.fa-window-close');
 minimize = document.querySelectorAll('.fa-window-minimize');
 maximize = document.querySelectorAll('.fa-window-maximize');
@@ -84,7 +84,8 @@ oriSize = document.querySelectorAll('.fa-compress-arrows-alt');
 // close
 close.forEach(function (node) {
     node.addEventListener('click', function () {
-        this.parentNode.style.display = 'none';
+        var removeWin = document.getElementById("dropArea");
+        removeWin.remove();
     });
 })
 // minimize
@@ -174,8 +175,8 @@ function dragElement(elmnt) {
         document.onmousemove = null;
     }
 }
-//change wallpaper
 
+//change wallpaper
 noContext = document.getElementById('body');
 noContext.addEventListener('contextmenu', e => {
     e.preventDefault();
@@ -229,3 +230,17 @@ document.querySelector(".list").addEventListener("click", function() {
       alert("please choose a valid file");
     }
 }
+
+
+// clone tab
+function cloneDiv() {   
+    var oriDiv = document.getElementById("dropArea");
+    var clnDiv = oriDiv.cloneNode(true);
+    // console.log(clnDiv);
+    
+    var childDiv = document.body.appendChild(clnDiv);
+    console.log(childDiv);
+    childDiv.style.left = 10 + "px";
+    childDiv.style.top = 10 + "px";
+    
+    }
